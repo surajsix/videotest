@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Image Text Translator</h1>
+      <p class="subtitle">Upload an image, choose a language, and get translated text you can read or download.</p>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flash-list">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" enctype="multipart/form-data" class="upload-form">
+        <label>
+          Select image
+          <input type="file" name="image" accept="image/*" required />
+        </label>
+
+        <label>
+          Translate to
+          <select name="language" required>
+            <option value="" disabled selected>Choose language</option>
+            {% for language in languages %}
+              <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+          </select>
+        </label>
+
+        <button type="submit">Translate Image Text</button>
+      </form>
+
+      {% if translated_text and result_id %}
+        <section class="result-box">
+          <h2>Translated Text</h2>
+          <pre>{{ translated_text }}</pre>
+
+          <div class="actions">
+            <a href="{{ url_for('download_text', result_id=result_id) }}">Download as .txt</a>
+            <a href="{{ url_for('download_image', result_id=result_id) }}">Download as image</a>
+          </div>
+        </section>
+      {% endif %}
+    </main>
+  </body>
+</html>
