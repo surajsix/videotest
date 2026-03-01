@@ -1,0 +1,14 @@
+{
+  "name": "image-translate-app",
+  "version": "1.0.0",
+  "description": "Upload an image, extract text, translate it, and download the result.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  },
+  "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.1",
+    "express": "^4.19.2"
+  }
+}
