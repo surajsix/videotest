@@ -9,8 +9,10 @@
   </head>
   <body>
     <main class="container">
-      <h1>Image Text Translator</h1>
-      <p class="subtitle">Upload an image, extract its text, and translate it into your preferred language.</p>
+      <h1>Image Text Translator (v2)</h1>
+      <p class="subtitle">
+        Upload an image, extract text, translate it to your language, then download either the translated text or a translated image.
+      </p>
 
       <section class="card">
         <label for="imageInput">1) Upload image</label>
@@ -48,14 +50,17 @@
           </div>
         </div>
 
-        <button id="runBtn">2) Extract & Translate</button>
+        <div class="button-row">
+          <button id="runBtn">2) Extract & Translate</button>
+          <button id="translateEditedBtn" class="secondary" disabled>Re-translate edited text</button>
+        </div>
         <p id="status" class="status"></p>
       </section>
 
       <section class="card output-grid">
         <div>
           <h2>Extracted text</h2>
-          <textarea id="extractedText" readonly placeholder="OCR text will appear here..."></textarea>
+          <textarea id="extractedText" placeholder="OCR text will appear here. You can edit it and re-translate."></textarea>
         </div>
         <div>
           <h2>Translated text</h2>
@@ -63,7 +68,16 @@
         </div>
       </section>
 
-      <button id="downloadBtn" disabled>Download translation (.txt)</button>
+      <section class="card">
+        <h2>Translated image preview</h2>
+        <p class="small-note">A generated image with your original upload and translated text block.</p>
+        <canvas id="translatedCanvas" width="1200" height="800"></canvas>
+      </section>
+
+      <div class="button-row">
+        <button id="downloadTextBtn" disabled>Download translation (.txt)</button>
+        <button id="downloadImageBtn" disabled>Download translated image (.png)</button>
+      </div>
     </main>
 
     <script src="app.js"></script>

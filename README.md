@@ -1,10 +1,12 @@
 # Image Text Translator
 
-A simple web app where you can:
+A web app where you can:
 - Upload an image
 - Extract text from the image using OCR
 - Translate that text into a language you choose
-- Read the translated result and download it as a `.txt` file
+- Read and edit extracted text, then re-translate
+- Download the translated result as a `.txt` file
+- Download a generated translated image as `.png`
 
 ## Run locally
 
@@ -19,3 +21,4 @@ Then open: `http://localhost:3000`
 
 - OCR runs in the browser via `tesseract.js`.
 - Translation runs through a backend endpoint powered by `@vitalets/google-translate-api`.
+- The translated image download combines the original image and translated text in one export.

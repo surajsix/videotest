@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
@@ -22,6 +22,11 @@ h1 {
 .subtitle {
   margin-top: 0;
   color: #4f5f77;
+}
+
+.small-note {
+  margin-top: 0;
+  color: #5f6f8b;
 }
 
 .card {
@@ -47,6 +52,12 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 label {
@@ -77,6 +88,11 @@ button {
   font-weight: 600;
 }
 
+button.secondary {
+  background: #eef2ff;
+  color: #2a3f90;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -90,7 +106,7 @@ button:disabled {
 
 textarea {
   width: 100%;
-  min-height: 200px;
+  min-height: 220px;
   padding: 0.5rem;
   border: 1px solid #ccd7e7;
   border-radius: 8px;
@@ -101,6 +117,13 @@ textarea {
   min-height: 1.3rem;
   margin-bottom: 0;
   color: #3d4c65;
+}
+
+#translatedCanvas {
+  width: 100%;
+  border: 1px solid #ccd7e7;
+  border-radius: 8px;
+  background: #fafdff;
 }
 
 @media (max-width: 760px) {
